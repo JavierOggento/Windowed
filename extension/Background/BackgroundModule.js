@@ -117,6 +117,12 @@ let get_host_config = async (tab) => {
     ALL_PIP,
   ])) ?? {};
 
+  mode ??= "in-window";
+  if (mode == "ask") {
+    mode = "in-window";
+  }
+  disabled ??= false;
+
   return {
     mode: clean_mode(mode ?? all_mode, disabled),
     pip: (pip ?? all_pip) === true,
